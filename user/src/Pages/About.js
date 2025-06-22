@@ -10,14 +10,14 @@ import { BACKEND_URL } from "../constant";
 
 const About = () => {
   return (
-    <div>
+    <>
       <Header />
       <Banner title="About Us" pageName="About" />
       <AboutSection />
       <FeatureSection />
       <ContactForm />
       <Footer />
-    </div>
+    </>
   );
 };
 
