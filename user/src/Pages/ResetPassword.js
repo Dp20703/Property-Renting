@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BACKEND_URL } from "../constant";
@@ -14,7 +14,7 @@ function ResetPassword() {
     confirmPassword: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [ setLoading] = useState(false);
   const [errors, setErrors] = useState({}); // Store validation errors
 
   const validateForm = () => {

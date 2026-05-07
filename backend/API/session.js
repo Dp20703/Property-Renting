@@ -2,7 +2,7 @@ async function Session(req, res) {
     try {
 
         const userDatas = req.session.user;
-        console.log(userDatas);
+        console.log("session userdata :",userDatas);
         
         if (!userDatas) {
             console.log("No sesssion created!");
@@ -13,7 +13,7 @@ async function Session(req, res) {
                 .json({ sessionData: userDatas, success: true, message: "got Successful" });
         }
     } catch (error) {
-        console.log(error);
+        console.log("Session error:",error);
         res.status(500).json({ error: error.message });
     }
 }

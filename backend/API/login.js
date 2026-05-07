@@ -6,7 +6,7 @@ async function login(req, res) {
     const collection = db.collection("Register");
     const { email, password } = req.body;
     const userData = await collection.findOne({ email, password });
-    console.log("NO USER DATA : ", userData);
+    console.log("USER DATA : ", userData);
 
     if (!userData) {
       res.status(400).json({ message: "Invalid Email or Password" });
@@ -24,7 +24,7 @@ async function login(req, res) {
       });
     }
   } catch (error) {
-    console.log(error);
+    console.log("Login Error:",error);
     res.status(500).json({ message: "Internal server error" });
   }
 }

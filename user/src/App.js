@@ -33,14 +33,16 @@ import TermsAndConditions from "./Pages/TermsConditions";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true); // New loading state
+  const [loading, setLoading] = useState(true);
   axios.defaults.withCredentials = true;
   const role = localStorage.getItem("role");
 
   //for checking session
   useEffect(() => {
+    console.log("11")
     const authenticateUser = async () => {
       try {
+        setLoading(true)
         const checkAuth = await checkSession();
         console.log("CHEK AUTH :", checkAuth);
         if (checkAuth.isAuth) {

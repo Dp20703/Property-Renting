@@ -80,7 +80,7 @@ app.use(
 );
 
 // Session
-const isProduction = process.env.IS_PRODUCTION;
+const isProduction = process.env.IS_PRODUCTION === "true";
 
 app.use(
   session({

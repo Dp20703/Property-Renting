@@ -100,11 +100,11 @@ function Main() {
       formData.append("l_Id", data.l_Id);
       formData.append("password", data.password);
       formData.append("role", data.role);
-
+console.log("formdata:",formData)
       data.role === "user"
         ? await axios.post(`${BACKEND_URL}/register_user`, data)
         : await axios.post(`${BACKEND_URL}/register_owner`, formData);
-
+console.log(`url : ${BACKEND_URL}/register_user`)
       toast.success("Registration successful", {
         onClose: () => {
           navigate("/login");
