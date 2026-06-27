@@ -72,4 +72,4 @@ RentingProperties`,
   }
 }
 
-module.exports = { register_user };
+module.exports = { register_user }; 

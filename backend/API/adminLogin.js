@@ -9,7 +9,7 @@ async function adminlogin(req, res) {
     if (!userData) {
       res.status(400).json({ message: "Invalid Email or Password" });
     } else {
-      //session creation
+      //session creation 
       req.session.user = { session: userData, isAuth: true };
       const userDatas = req.session.user;
       res.status(200).json({
@@ -22,6 +22,6 @@ async function adminlogin(req, res) {
     console.log(error);
     res.status(500).json({ message: "Internal server error" });
   }
-}
+} 
 
 module.exports = { adminlogin };

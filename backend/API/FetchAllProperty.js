@@ -72,5 +72,5 @@ async function FetchAllProperty(req, res) {
     return res.status(500).json({ message: "Internal server Error" });
   }
 }
-
+ 
 module.exports = { FetchAllProperty };

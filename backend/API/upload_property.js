@@ -10,7 +10,7 @@ async function upload_property(req, res) {
       title,
       description,
       location,
-      address,
+      address, 
       zipCode,
       propertyType,
       category,

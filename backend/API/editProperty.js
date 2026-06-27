@@ -64,7 +64,7 @@ async function edit_property(req, res) {
     } else {
       updatedProperty.propertyProof = existingProperty.propertyProof;
     }
-
+ 
     // Handle identity ID update
     if (req.files["identityId"]) {
       updatedProperty.identityId = req.files["identityId"][0].filename;

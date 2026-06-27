@@ -6,7 +6,7 @@ async function UpdateProperty(req, res) {
     const db = await connectDB();
     const collection = db.collection("Property");
 
-    const {
+    const { 
       id,
       property_Id,
       owner_Id,

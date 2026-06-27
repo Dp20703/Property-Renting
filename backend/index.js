@@ -53,7 +53,6 @@ const { respond_complaint } = require("./API/response_complaint");
 const { respond_feedback } = require("./API/respond_feedback");
 const RespondToContact = require("./API/respond_contactus");
 const { getDashboardCounts } = require("./API/getDashboardCounts");
-const jwt = require("jsonwebtoken");
 const { OAuth2Client } = require("google-auth-library");
 const { GoogleUserLogin } = require("./API/UserGoogleLogin");
 const { DeleteUser } = require("./API/deleteUser");
@@ -115,6 +114,10 @@ app.use("/images/propertyImg", express.static("images/propertyImg"));
 app.post("/auth/google", GoogleUserLogin);
 //common routes:
 app.post("/login", login);
+app.get("/session", Session);
+app.get("/logout", Logout);
+// done
+
 app.post("/contactUs", ContactUs);
 app.post("/send_inquiry", send_inquiry);
 app.post("/send_feedback", send_feedback);
@@ -125,12 +128,10 @@ app.post(
   profilePicUpload.fields([{ name: "profilePic", maxCount: 1 }]),
   UpdateProfile
 );
-app.get("/session", Session);
-app.get("/logout", Logout);
 app.post("/sendOtp", sendUserOTP);
 app.post("/verifyOtp", verifyOTP);
 app.post("/changePassword", changeUserPassword);
-app.post("/add_product_inquiry", send_property_inquiry);
+app.post("/add_property_inquiry", send_property_inquiry);
 
 //user routes:
 app.post("/register_user", register_user);
@@ -166,11 +167,14 @@ app.post(
   edit_property
 );
 app.post("/delete_property", delete_property);
+app.post("/update_property", UpdateProperty);
+// done 
+
+
 app.get("/manage_booking", manage_bookings);
 app.get("/manage_property", manage_property);
 app.get("/get_property_request", get_request);
 app.get("/view_payment", view_payments);
-app.post("/update_property", UpdateProperty);
 app.post("/get_property_inquiries", get_property_inquiries);
 app.post("/update_request", update_request_status);
 
@@ -180,6 +184,9 @@ app.get("/fetch_all_user", FetchAllUser);
 app.get("/fetch_all_owner", FetchAllOwner);
 app.get("/fetch_all_property", FetchAllProperty);
 app.get("/admin_fetch_all_property", AdminFetchAllProperty);
+app.delete("/delete_property/:id", deleteProperty_admin);
+// done
+
 app.get("/fetch_all_request", FetchAllRequest);
 app.get("/fetch_all_booking", FetchAllBooking);
 app.get("/fetch_all_payment", FetchAllPayments);
@@ -192,7 +199,6 @@ app.post("/respond_contactus", RespondToContact);
 app.get("/getDashboardCounts", getDashboardCounts);
 app.delete("/delete_user/:id", DeleteUser);
 app.delete("/delete_owner/:id", deleteOwner);
-app.delete("/delete_property/:id", deleteProperty_admin);
 app.post(
   "/updateProfileAdmin",
   profilePicUpload.fields([{ name: "profilePic", maxCount: 1 }]),

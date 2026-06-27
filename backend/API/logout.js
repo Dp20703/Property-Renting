@@ -5,7 +5,7 @@ async function Logout(req, res) {
     if (!sessions) { 
         return res.status(401).json({ message: "Already Logged Out" });
     } else {
-        try {
+        try { 
             req.session.destroy(err => {
                 if (err) {
                     console.error('Error destroying session:', err);

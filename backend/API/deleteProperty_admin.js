@@ -20,6 +20,6 @@ async function deleteProperty_admin(req, res) {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 
-}
+} 
 
 module.exports = { deleteProperty_admin };

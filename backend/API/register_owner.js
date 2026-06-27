@@ -13,7 +13,7 @@ async function register_owner(req, res) {
 
     // l_Id file handling:
     const l_IdFile = req.files?.l_Id?.[0] ? req.files.l_Id[0].filename : null;
-    const l_Id = l_IdFile || null;
+    const l_Id = l_IdFile || null; 
 
 
     // Check if user already exists:

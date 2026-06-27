@@ -238,7 +238,7 @@ const RentForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${BACKEND_URL}/add_product_inquiry`, formData);
+      await axios.post(`${BACKEND_URL}/add_property_inquiry`, formData);
       toast.success("Inquiry Added Successfully!!", {
         autoClose: 1000,
         onClose: () => {

@@ -42,7 +42,7 @@ async function delete_property(req, res) {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Internal Server Error" });
-  }
+  } 
 }
 
 module.exports = { delete_property };
